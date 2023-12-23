@@ -15,6 +15,7 @@ Dell Technologies Japan Inc, （2021年4月～現在）
   
   
 【担当業務】  
+  
 Primary Storage製品関連のテクニカルサポート  
 SAN Switchである Connectrix製品(Cisco MDS, Brocade DS-SeriesのOEM製品)に関する問い合わせ対応  
 Break&Fixの障害対応やQA対応時のお客様対応がメイン  
