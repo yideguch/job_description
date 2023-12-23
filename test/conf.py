@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'work'
+project = 'job_description'
 copyright = '2023, yideguch'
 author = 'yideguch'
 
@@ -23,5 +23,5 @@ language = 'ja'
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'scrolls'
+html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
