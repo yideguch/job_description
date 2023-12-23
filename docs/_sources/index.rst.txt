@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to work's documentation!
+職務経歴書
 ================================
 
 .. toctree::
@@ -13,7 +13,9 @@ Welcome to work's documentation!
    ./chap1
    ./chap2
    ./chap3
-
+   ./chap4
+   ./chap5
+   ./chap6
 
 Indices and tables
 ==================
