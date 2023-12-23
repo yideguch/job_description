@@ -68,7 +68,8 @@ Cisco ACIの構築自動化のためにPythonのスクリプトや検証結果�
   
 - 使用言語、使用機器 
 【OS】  
+
 Windows10,Linux(ubuntu),IOS,NX-OS  
   
-【HW】
+【HW】  
 Nexus9500系,Nexus9300系,Cisco UCS  
