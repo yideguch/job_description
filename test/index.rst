@@ -14,6 +14,9 @@
    ./chap2
    ./chap3
    ./chap4
+   ./chap4-1
+   ./chap4-2
+   ./chap4-3
    ./chap5
    ./chap6
 
