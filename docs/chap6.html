@@ -48,8 +48,11 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="chap1.html">職務経歴書概要</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chap2.html">得意とする経験・分野・スキル</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chap3.html">会社履歴</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap3.html">会社遍歴</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chap4.html">職務経歴詳細</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap4/chap4-1.html">株式会社VSN （2017年8月～2020年1月）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap4/chap4-2.html">株式会社エーピーコミュニケーションズ （2020年3月～現在）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap4/chap4-3.html">Dell Technologies Japan Inc, （2021年4月～現在）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chap5.html">PCスキル/テクニカルスキル</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">自己PR</a></li>
 </ul>
@@ -80,6 +83,84 @@
              
   <section id="pr">
 <h1>自己PR<a class="headerlink" href="#pr" title="Link to this heading"></a></h1>
+<p><strong>NW機器のサポート</strong></p>
+<p>機器ベンダーに勤めていたため、ハードウェアのアーキテクチャやソフトウェアに関する問い合わせの対応を行っておりました。
+また、外国の開発エンジニアへの問い合わせも行っていたため、英語の読み書きには多少の心得があります。</p>
+<p><strong>ユーザとの顧客対応</strong></p>
+<p>不具合の報告を定期的にエンドユーザー様へ赴き報告を行っておりました。
+またベンダーのサポートとして障害対応時の温度感の高いお客様との電話対応ならびにメールや、報告会などの対応経験もございます。
+またトレーニング業務も社内社外両面で担当経験があるため、多少のコミュニケーション能力には自信がございます。</p>
+<p><strong>向上心</strong></p>
+<p>NW機器ベンダーという恵まれた環境にいたため、検証用に使用できる機器を借り、実際にコンフィグ投入を行い、再現検証等も積極的におこなっておりました。
+資格取得や物理機器の操作のための学習も普段から取り組んでおり、自費でNW機器を購入し、小さくはありますが、自宅ラボを作っております。
+その他大規模なネットワーク検証にはCML2を使用して検証等行っております。</p>
+<img alt="chap6/homelab.png" src="chap6/homelab.png" />
+<p>また、資格取得以外にも業務効率化のためPythonを学び、いくつかの定型作業の自動化に取り組んでおりました。
+参考までに作成していたscriptを下記に記載します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">netmiko</span> <span class="kn">import</span> <span class="n">ConnectHandler</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;commands.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">commands</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span><span class="c1">#1行ずつ読み込む</span>
+
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;devices.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">devices</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span><span class="c1">#一行ずつ読み込む</span>
+
+<span class="k">for</span> <span class="n">ip</span> <span class="ow">in</span> <span class="n">devices</span><span class="p">:</span>
+    <span class="n">cisco_device</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;device_type&#39;</span><span class="p">:</span> <span class="s1">&#39;cisco_ios_telnet&#39;</span><span class="p">,</span><span class="c1">#telnet接続なら必須</span>
+            <span class="s1">&#39;ip&#39;</span><span class="p">:</span> <span class="n">ip</span><span class="p">,</span>
+            <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;cisco&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;cisco&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;secret&#39;</span><span class="p">:</span> <span class="s1">&#39;cisco&#39;</span><span class="p">,</span>
+            <span class="p">}</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Connecting to &#39;</span> <span class="o">+</span> <span class="n">ip</span><span class="p">)</span>
+    <span class="c1">#ssh = connection ,telnet = net_connect</span>
+    <span class="n">net_connect</span> <span class="o">=</span> <span class="n">ConnectHandler</span><span class="p">(</span><span class="o">**</span><span class="n">cisco_device</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Entering enable mode ...&#39;</span><span class="p">)</span>
+    <span class="n">net_connect</span><span class="o">.</span><span class="n">enable</span><span class="p">()</span>
+
+    <span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="n">commands</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">+=</span> <span class="n">net_connect</span><span class="o">.</span><span class="n">send_command</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">delay_factor</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">strip_command</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">strip_prompt</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+
+    <span class="n">prompt</span> <span class="o">=</span> <span class="n">net_connect</span><span class="o">.</span><span class="n">find_prompt</span><span class="p">()</span>
+    <span class="c1">#print(prompt)</span>
+    <span class="n">hostname</span> <span class="o">=</span> <span class="n">prompt</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1">#print(hostname)</span>
+    
+    <span class="nb">list</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+    <span class="c1">#print(config)</span>
+
+    <span class="kn">import</span> <span class="nn">datetime</span>
+    <span class="c1">#取得した日のタイムスタンプ</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="n">today</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">day</span><span class="p">)</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">today</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="n">hostname</span> <span class="o">+</span> <span class="s1">&#39;.txt&#39;</span>
+
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span> <span class="o">+</span> <span class="s1">&#39;.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">backup</span><span class="p">:</span>
+        <span class="n">backup</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Backup of &#39;</span> <span class="o">+</span> <span class="n">hostname</span> <span class="o">+</span> <span class="s1">&#39; completed successfully&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;#&#39;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+
+    <span class="n">net_connect</span><span class="o">.</span><span class="n">disconnec</span>
+</pre></div>
+</div>
+<p><strong>今後</strong>
+現在、企業した友人の会社でのネットワークの研修や、企業組織作りなどのお手伝いをさせていただいており、技術だけでなく、
+教育や、マネジメント、組織作りといった面にも興味を向けて学んでいきたいと思います。</p>
+<p>技術面でいえば、過去、自身が行った自己学習の内容などを技術書同人誌として販売した経験があるので、インフラのみではなく、PythonやRustなど  のプログラミング技術の習熟や
+新しい技術などの仕組みの解析、調査に取り組み、実際に自宅でサービスをくみ上げるなど取り組み、そういった経験も技術ブログや、技術書同人誌など、
+外部へアウトプットしていくという活動に取り組んでいきたいと思っています。</p>
 </section>
 
 
